@@ -16,7 +16,7 @@ FROM eclipse-temurin:17-jre-alpine
 WORKDIR /app
 
 # 1. aşamada derlenen .jar dosyasını kopyala
-COPY --from=build /app/target/todo-Backend-0.0.1-SNAPSHOT.jar app.jar
+COPY --from=build /app/target/todo-backend-0.0.1-SNAPSHOT.jar app.jar
 
 # Render'ın verdiği portu kullan
 ENTRYPOINT ["java", "-Dserver.port=${PORT:8080}", "-jar", "app.jar"]
