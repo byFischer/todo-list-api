@@ -10,7 +10,7 @@ import java.util.List;
 
 @RestController // REST API için
 @RequestMapping("/api/todos") // Base URL
-@CrossOrigin(origins = "http://emrezeytin.org") // Frontend CORS için (React localhost)
+@CrossOrigin(origins = "*") // Frontend CORS için (React localhost)
 public class TodoController {
     @Autowired
     private TodoService todoService;
