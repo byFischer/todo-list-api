@@ -8,31 +8,31 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController // REST API için
-@RequestMapping("/api/todos") // Base URL
- // Frontend CORS için (React localhost)
+@RestController 
+@RequestMapping("/api/todos") 
+ 
 public class TodoController {
     @Autowired
     private TodoService todoService;
 
-    @GetMapping // Tüm todos'u getir
+    @GetMapping 
     public List<Todo> getAllTodos() {
         return todoService.getAllTodos();
     }
 
-    @PostMapping // Yeni todo ekle
+    @PostMapping 
     public Todo createTodo(@RequestBody Todo todo) {
         return todoService.createTodo(todo);
     }
 
-    @GetMapping("/{id}") // ID'ye göre getir
+    @GetMapping("/{id}") 
     public ResponseEntity<Todo> getTodoById(@PathVariable Long id) {
         return todoService.getTodoById(id)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
     }
 
-    @PutMapping("/{id}") // Güncelle
+    @PutMapping("/{id}")
     public ResponseEntity<Todo> updateTodo(@PathVariable Long id, @RequestBody Todo todoDetails) {
         return ResponseEntity.ok(todoService.updateTodo(id, todoDetails));
     }
