@@ -6,13 +6,13 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.Data;
 
-@Entity // Bu sınıf veritabanı tablosu olacak
-@Data   // Lombok: Otomatik getter/setter/toString
+@Entity 
+@Data   
 public class Todo {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY) // Otomatik ID
+    @GeneratedValue(strategy = GenerationType.IDENTITY) 
     private Long id;
-    private String title;      // Görev başlığı
-    private String description; // Açıklama
-    private boolean completed; // Tamamlanmış mı?
+    private String title;      
+    private String description; 
+    private boolean completed;
 }
